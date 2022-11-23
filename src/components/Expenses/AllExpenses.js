@@ -1,9 +1,10 @@
-import ExpenseItem from "./ExpenseItem";
+import ExpenseItem from "../Expenses/ExpenseItem";
 import "./AllExpenses.css";
+import Card from "../UI/Card";
 
 const AllExpenses = ({ expenses }) => {
   return (
-    <div className="expenses">
+    <Card className="expenses">
       {expenses.map((expense) => (
         <ExpenseItem
           key={expense.id}
@@ -12,7 +13,7 @@ const AllExpenses = ({ expenses }) => {
           amount={expense.amount}
         />
       ))}
-    </div>
+    </Card>
   );
 };
 
