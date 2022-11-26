@@ -32,6 +32,7 @@ function App() {
   };
   return (
     <div>
+      <h1>Expense Tracker</h1>
       <NewExpense onAddNewExpenseHandler={addNewExpenseHandler} />
       <AllExpenses expenses={expenses} />
     </div>
