@@ -1,4 +1,4 @@
-import ExpenseItem from "../Expenses/ExpenseItem";
+import ExpensesList from "./ExpensesList";
 import "./AllExpenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
@@ -11,22 +11,17 @@ const AllExpenses = ({ expenses }) => {
     setFilterYear(filterYear);
   };
 
+  const filteredExpenses = expenses.filter(
+    (expense) => expense.date.getFullYear() === filterYear
+  );
+
   return (
     <Card className="expenses">
       <ExpensesFilter
         onSaveFilterYear={onSaveFilterYear}
         filterYear={filterYear}
       />
-      {expenses
-        .filter((expense) => expense.date.getFullYear() === filterYear)
-        .map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            date={expense.date}
-            title={expense.title}
-            amount={expense.amount}
-          />
-        ))}
+      <ExpensesList filteredExpenses={filteredExpenses} />
     </Card>
   );
 };
